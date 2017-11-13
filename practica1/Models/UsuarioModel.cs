@@ -21,6 +21,7 @@ namespace practica1.Models
         public string Password { get; set; }
         public bool Estado { get; set; }
         public string CorreoElectronico { get; set; }
+        public string NombresCompletos { get; set; }
 
         public Respuesta Verificar(UsuarioModel usuario)
         {
@@ -63,7 +64,7 @@ namespace practica1.Models
             return respuesta;
         }
 
-        public List<UsuarioModel> ObtenerUsuario()
+        public List<UsuarioModel> ObtenerUsuarios()
         {
             List<UsuarioModel> listadoUsuarios = null;
 
@@ -80,15 +81,25 @@ namespace practica1.Models
                     if (dr.HasRows)
                     {
                         listadoUsuarios = new List<UsuarioModel>();
-                        while (dr.HasRows)
+                        while (dr.Read())
                         {
+                            var usuario = new UsuarioModel
+                            {
+                                Codigo = long.Parse(dr["UserId"].ToString()),
+                                UserName = dr["UserName"].ToString(),
+                                Password = dr["Password"].ToString(),
+                                CorreoElectronico = dr["Email"].ToString(),
+                                Estado = (int.Parse(dr["Status"].ToString()) == 1) ? true : false,
+                                NombresCompletos = dr["CompleteName"].ToString()
+                            };
 
+                            listadoUsuarios.Add(usuario);
                         }
                     }
-                    
+
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
