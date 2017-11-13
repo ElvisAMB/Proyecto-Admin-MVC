@@ -107,5 +107,45 @@ namespace practica1.Models
             return listadoUsuarios;
         }
 
+        public UsuarioModel Obtenerusuario(string username, string password)
+        {
+            UsuarioModel usuario = null;
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(stringConnection))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("[SP_UserAccount]", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Opcion", 2);
+                    cmd.Parameters.AddWithValue("@UserName", username);
+                    cmd.Parameters.AddWithValue("@Password", password);
+                    //cmd.Parameters.Add(new SqlParameter("@codigo", SqlDbType.Decimal, 10)).Direction = ParameterDirection.Output;
+                    //cmd.Parameters.Add(new SqlParameter("@mensaje", SqlDbType.VarChar, 10)).Direction = ParameterDirection.Output;
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            usuario = new UsuarioModel
+                            {
+                                Codigo = long.Parse(dr["UserId"].ToString()),
+                                UserName = dr["UserName"].ToString(),
+                                Password = dr["Password"].ToString(),
+                                CorreoElectronico = dr["Email"].ToString(),
+                                Estado = (int.Parse(dr["Status"].ToString()) == 1) ? true : false,
+                                NombresCompletos = dr["CompleteName"].ToString()
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+            }
+
+            return usuario;
+        }
     }
 }
