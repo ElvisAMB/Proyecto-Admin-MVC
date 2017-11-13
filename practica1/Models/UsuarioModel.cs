@@ -139,7 +139,7 @@ namespace practica1.Models
                     }
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
 
