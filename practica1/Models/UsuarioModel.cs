@@ -120,8 +120,6 @@ namespace practica1.Models
                     cmd.Parameters.AddWithValue("@Opcion", 2);
                     cmd.Parameters.AddWithValue("@UserName", username);
                     cmd.Parameters.AddWithValue("@Password", password);
-                    //cmd.Parameters.Add(new SqlParameter("@codigo", SqlDbType.Decimal, 10)).Direction = ParameterDirection.Output;
-                    //cmd.Parameters.Add(new SqlParameter("@mensaje", SqlDbType.VarChar, 10)).Direction = ParameterDirection.Output;
                     SqlDataReader dr = cmd.ExecuteReader();
 
                     if (dr.HasRows)
