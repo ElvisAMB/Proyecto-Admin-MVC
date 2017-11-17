@@ -1,6 +1,7 @@
 ﻿using practica1.Models;
 using System;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace practica1.Controllers
 {
@@ -24,6 +25,12 @@ namespace practica1.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
+            return RedirectToAction("Index", "Login");
+        }
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Login");
         }
     }
