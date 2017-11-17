@@ -24,7 +24,6 @@ namespace practica1.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-
             return RedirectToAction("Index", "Login");
         }
     }
