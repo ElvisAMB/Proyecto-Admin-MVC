@@ -6,7 +6,8 @@ namespace practica1.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            //return View("Index","_MenuPrincipal");
+            return View("Index");
         }
 
         public ActionResult About()
