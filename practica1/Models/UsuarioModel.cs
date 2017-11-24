@@ -24,7 +24,8 @@ namespace practica1.Models
         public bool Estado { get; set; }
         public string CorreoElectronico { get; set; }
         public string NombresCompletos { get; set; }
-
+        public int Status { get; set; }
+        public int Perfil { get; set; }
         public Respuesta Verificar(UsuarioModel usuario)
         {
             Respuesta respuesta = new Respuesta();
@@ -64,7 +65,6 @@ namespace practica1.Models
 
             return respuesta;
         }
-
         public List<UsuarioModel> ObtenerUsuarios()
         {
             List<UsuarioModel> listadoUsuarios = null;
@@ -107,7 +107,6 @@ namespace practica1.Models
 
             return listadoUsuarios;
         }
-
         public UsuarioModel ObtenerUsuario(string username, string password)
         {
             UsuarioModel usuario = null;
@@ -134,7 +133,7 @@ namespace practica1.Models
                                 Password = dr["Password"].ToString(),
                                 CorreoElectronico = dr["Email"].ToString(),
                                 Estado = (int.Parse(dr["Status"].ToString()) == 1) ? true : false,
-                                NombresCompletos = dr["CompleteName"].ToString()
+                                NombresCompletos = dr["CompleteName"].ToString(),
                             };
                         }
                     }
@@ -145,16 +144,6 @@ namespace practica1.Models
             }
 
             return usuario;
-        }
-
-        public Respuesta ValidaDatosLogin()
-        {
-            Respuesta respuesta = new Respuesta();
-            if (true)
-            {
-
-            }
-            return respuesta;
         }
     }
 }
