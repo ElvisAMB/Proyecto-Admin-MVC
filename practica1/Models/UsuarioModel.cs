@@ -16,7 +16,7 @@ namespace practica1.Models
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Password es requerida")]
+        [Required(ErrorMessage = "Password es requerido")]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

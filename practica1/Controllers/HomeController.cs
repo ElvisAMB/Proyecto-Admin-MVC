@@ -1,4 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using practica1.Models;
+using System;
+using System.IO;
+using System.Web;
+using System.Web.Mvc;
 
 namespace practica1.Controllers
 {
@@ -24,5 +28,38 @@ namespace practica1.Controllers
             return View();
         }
 
+        public ActionResult Archivo()
+        {
+            return View(new FileModel());
+        }
+
+        [HttpPost]
+        public ActionResult SubirArchivo(FileModel model)
+        {
+            //if (file == null) return View("Archivo");
+
+            //foreach (var f in file)
+            //{
+            //    if (f != null)
+            //    {
+            //        string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + f.FileName).ToLower();
+            //        f.SaveAs(Server.MapPath("~/Uploads/" + archivo));
+            //    }
+            //}
+
+            //return View("Index");
+
+            if (ModelState.IsValid)
+            {
+                // Use your file here
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    model.File.InputStream.CopyTo(memoryStream);
+                    string archivo = (DateTime.Now.ToString("yyyyMMddHHmmss") + "-" + model.File.FileName).ToLower();
+                    model.File.SaveAs(Server.MapPath("~/Uploads/" + archivo));
+                }
+            }
+            return View("Archivo");
+        }
     }
 }

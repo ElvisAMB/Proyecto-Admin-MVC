@@ -171,10 +171,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationDbInitializer.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
+    <Compile Include="Models\ApplicationRoleManager.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Persona.cs" />
@@ -204,6 +210,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="App_Data\[dbo].[SP_UserAccount]_storeProcedure.zip" />
+    <None Include="Properties\PublishProfiles\WebLocal.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -310,8 +317,13 @@
     <Content Include="Scripts\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Scripts\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Scripts\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="Views\Home\Archivo.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

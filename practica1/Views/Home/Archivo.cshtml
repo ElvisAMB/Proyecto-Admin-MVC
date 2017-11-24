@@ -1,0 +1,34 @@
+﻿@model practica1.Models.FileModel
+@{
+    ViewBag.Title = "Archivo";
+    Layout = "~/Views/Shared/_MenuPrincipal.cshtml";
+}
+<br />
+<br />
+
+<p></p>
+
+@*@using (Html.BeginForm("SubirArchivo", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @*<input type="file" name="file" />
+    @Html.TextBoxFor(m => m.File, new { type = "file" })
+    <br />
+    <input type="file" name="file" />
+    <br />
+    <input type="file" name="file" />
+    <br />
+    <button type="submit">Subir archivo</button>
+    }*@
+
+
+@using (Html.BeginForm("SubirArchivo", "Home", FormMethod.Post, new
+{
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.TextBoxFor(m => m.File, new { type = "file", @class = "btn btn-warning" })
+    @Html.ValidationMessageFor(m => m.File)
+    <br />
+        <br />
+        <input type="submit" value="Guardar Archivo" class="btn btn-primary" />
+}
