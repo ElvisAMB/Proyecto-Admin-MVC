@@ -10,15 +10,17 @@ namespace practica1.Models
     public class UsuarioModel : Respuesta
     {
         private string stringConnection = ConfigurationManager.ConnectionStrings["ConnectionProduccion"].ConnectionString;
+        public long? Id { get; set; }
 
-        [Required(ErrorMessage = "Usuario es requirido")]
+        [Required(ErrorMessage = "Usuario es requerido")]
         [Display(Name = "Usuario")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "Password es requirida")]
+        [Required(ErrorMessage = "Password es requerida")]
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
         public bool Estado { get; set; }
         public string CorreoElectronico { get; set; }
         public string NombresCompletos { get; set; }
@@ -38,7 +40,6 @@ namespace practica1.Models
                     cmd.Parameters.AddWithValue("@Password", usuario.Password);
                     cmd.Parameters.Add(new SqlParameter("@codigo", SqlDbType.Decimal, 10)).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add(new SqlParameter("@mensaje", SqlDbType.VarChar, 10)).Direction = ParameterDirection.Output;
-                    //SqlDataReader dr = cmd.ExecuteReader();
 
                     cmd.ExecuteReader();
 
@@ -107,7 +108,7 @@ namespace practica1.Models
             return listadoUsuarios;
         }
 
-        public UsuarioModel Obtenerusuario(string username, string password)
+        public UsuarioModel ObtenerUsuario(string username, string password)
         {
             UsuarioModel usuario = null;
             try
@@ -144,6 +145,16 @@ namespace practica1.Models
             }
 
             return usuario;
+        }
+
+        public Respuesta ValidaDatosLogin()
+        {
+            Respuesta respuesta = new Respuesta();
+            if (true)
+            {
+
+            }
+            return respuesta;
         }
     }
 }
