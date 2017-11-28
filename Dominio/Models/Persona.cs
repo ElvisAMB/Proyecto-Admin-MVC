@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace practica1.Models
+namespace Dominio.Models
 {
-    public class IPersona
+    public class Persona
     {
         public int? Id { get; set; }
         public string FirstName { get; set; }

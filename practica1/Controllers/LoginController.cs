@@ -1,4 +1,5 @@
-﻿using practica1.Models;
+﻿using Dominio.Models;
+using practica1.Models;
 using System;
 using System.Web.Mvc;
 using System.Web.Security;

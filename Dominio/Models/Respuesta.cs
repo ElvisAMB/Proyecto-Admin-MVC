@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace practica1.Models
+namespace Dominio.Models
 {
     public class Respuesta
     {
