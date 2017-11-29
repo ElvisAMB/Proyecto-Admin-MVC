@@ -29,17 +29,18 @@ namespace Dominio.Models
                     conexion.Open();
                     SqlCommand cmd = new SqlCommand("[Agenda].[ConsultarAgenda]", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@TipoConsulta", 0);
-                    cmd.Parameters.AddWithValue("@Sucursal", 0);
+                    //cmd.Parameters.AddWithValue("@TipoConsulta", 0);
+                    //cmd.Parameters.AddWithValue("@Sucursal", 0);
 
                     SqlDataReader dr = cmd.ExecuteReader();
-                    if (dr.Read())
+                    while (dr.Read())
                     {
                         var persona = new Agenda
                         {
                             FirstName = dr["nombres"].ToString(),
                             LastName = dr["apellidos"].ToString(),
-                            Extension = dr["extension"].ToString()
+                            Extension = dr["extension"].ToString(),
+                            Email = dr["email"].ToString()
                         };
 
                         _listado.Add(persona);
