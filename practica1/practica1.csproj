@@ -320,6 +320,10 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Agenda\Index.cshtml" />
+    <Content Include="Views\Agenda\Edit.cshtml" />
+    <Content Include="Views\Agenda\Crear.cshtml" />
+    <Content Include="Views\Agenda\Eliminar.cshtml" />
+    <Content Include="Views\Agenda\Detalle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
