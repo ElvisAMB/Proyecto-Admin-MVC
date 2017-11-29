@@ -6,7 +6,7 @@ namespace Dominio.Models
     {
         public int? Id { get; set; }
         public string FirstName { get; set; }
-        public string SecondName { get; set; }
+        public string MidleName { get; set; }
         public string LastName { get; set; }
         public string SecondLastName { get; set; }
         public string Code { get; set; }

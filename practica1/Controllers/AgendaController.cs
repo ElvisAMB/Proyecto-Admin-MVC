@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using Dominio.Models;
+using System.Web.Mvc;
 
 namespace practica1.Controllers
 {
@@ -7,7 +8,7 @@ namespace practica1.Controllers
         // GET: Agenda
         public ActionResult Index()
         {
-            return View();
+            return View(new Agenda().ConsultarAgenda());
         }
     }
 }

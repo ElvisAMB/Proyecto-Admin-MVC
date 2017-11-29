@@ -1,4 +1,4 @@
-create schema Agenda
+--create schema Agenda
 
 INSERT INTO [Agenda].[AgendaTelefonica]([nombres],[apellidos],[extension],[estado],[sucursal],[direccion],[pbx],[fax],[lineaCelular],[lineaCelularAdicional],[fechaCreacion])
 VALUES('ALBERTO','PODESTA','209',1,1,'AV. LAS LOMAS 409 Y LA 5TA. URDESA CENTRAL','04-2380 680','','09 9977 5230','09 8330 5681',GETDATE())

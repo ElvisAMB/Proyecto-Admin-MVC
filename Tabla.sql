@@ -11,6 +11,8 @@ GO
 SET ANSI_PADDING ON
 GO
 
+--CREATE SCHEMA [AGENDA]
+
 CREATE TABLE [AGENDA].[AgendaTelefonica](
 	[nombres] [varchar](100) NULL,
 	[apellidos] [varchar](100) NULL,
