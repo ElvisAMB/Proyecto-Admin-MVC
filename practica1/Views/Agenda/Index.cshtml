@@ -26,6 +26,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Extension)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
         <th></th>
     </tr>
 
@@ -48,7 +51,15 @@
                 @Html.DisplayFor(modelItem => item.Extension)
             </td>
             <td>
-                @Html.TextBoxFor(modelItem => item.Estado)
+                @if (item.Estado)
+                {
+                    <b>Activo</b>
+                }
+                else
+                {
+                    <b>Inactivo</b>
+                }
+                @*@Html.DisplayForModel(item.Estado)*@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |

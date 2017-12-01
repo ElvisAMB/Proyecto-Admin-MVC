@@ -42,6 +42,7 @@ namespace Dominio.Models
                             LastName = dr["apellidos"].ToString(),
                             Extension = dr["extension"].ToString(),
                             Email = dr["email"].ToString(),
+                            Estado = (dr["estado"].ToString()) == "1" ? true : false,
                             Id = int.Parse(dr["id"].ToString())
                         };
 
