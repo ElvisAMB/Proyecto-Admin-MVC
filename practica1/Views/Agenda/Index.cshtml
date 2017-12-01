@@ -12,22 +12,22 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Id)
+            <b>Código</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            <b>Nombre</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            <b>Apellido</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            <b>Correo Electrónico</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Extension)
+            <b>N° Extensión</b>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Estado)
+            <b>Estado</b>
         </th>
         <th></th>
     </tr>
@@ -59,7 +59,6 @@
                 {
                     <b>Inactivo</b>
                 }
-                @*@Html.DisplayForModel(item.Estado)*@
             </td>
             <td>
                 @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |

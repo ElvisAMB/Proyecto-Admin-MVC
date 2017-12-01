@@ -26,9 +26,9 @@
     enctype = "multipart/form-data"
 }))
 {
-    @Html.TextBoxFor(m => m.File, new { type = "file", @class = "btn btn-warning" })
+    @Html.TextBoxFor(m => m.File, new { type = "file" })
     @Html.ValidationMessageFor(m => m.File)
     <br />
-        <br />
+    <br />
         <input type="submit" value="Guardar Archivo" class="btn btn-primary" />
 }
