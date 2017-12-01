@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Dominio.Models.Cliente>
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+<br />
+<br />
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="listar" class="table table-bordered table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClienteId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Correo)
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClienteId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Correo)
+                </td>
+            </tr>
+        }
+    }
+</table>
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/datatables")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#listar').dataTable({
+                "bServerSide": true,
+                "sAjaxSource": '@Url.Action("GetDataCustomers", "Agenda")',
+                "bProcessing": true,
+                "bdestroy": true,
+                "start": 0,
+                "order": [0, "asc"],
+                "bDeferRender": true,
+
+                "aoColumns": [
+                        { "sName": "ClienteId", "mData": "ClienteId" },
+                        { "sName": "Nombre", "mData": "Nombre" },
+                        { "sName": "Correo", "mData": "Correo" },
+                ],
+            });
+        });
+    </script>
+}
