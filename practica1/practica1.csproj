@@ -324,6 +324,7 @@
     <Content Include="Views\Agenda\Crear.cshtml" />
     <Content Include="Views\Agenda\Eliminar.cshtml" />
     <Content Include="Views\Agenda\Detalle.cshtml" />
+    <Content Include="Views\Agenda\ConsultaClientes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />

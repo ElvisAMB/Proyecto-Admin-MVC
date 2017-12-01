@@ -4,68 +4,79 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<br />
+<br />
+<h2>Agenda Telefónica</h2>
 
 <p>
     @Html.ActionLink("Nuevo", "Crear")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            <b>Código</b>
-        </th>
-        <th>
-            <b>Nombre</b>
-        </th>
-        <th>
-            <b>Apellido</b>
-        </th>
-        <th>
-            <b>Correo Electrónico</b>
-        </th>
-        <th>
-            <b>N° Extensión</b>
-        </th>
-        <th>
-            <b>Estado</b>
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
+@using (Html.BeginForm())
+{
+    <b> Nombre:</b>
+    <input type="text" name="nombre" value="@ViewBag.Name" />
+    <input type="submit" value="Filtrar" />
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Extension)
-            </td>
-            <td>
-                @if (item.Estado)
-                {
-                    <b>Activo</b>
-                }
-                else
-                {
-                    <b>Inactivo</b>
-                }
-            </td>
-            <td>
-                @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
-                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
-            </td>
+            <th>
+                <b>Código</b>
+            </th>
+            <th>
+                <b>Nombre</b>
+            </th>
+            <th>
+                <b>Apellido</b>
+            </th>
+            <th>
+                <b>Correo Electrónico</b>
+            </th>
+            <th>
+                <b>N° Extensión</b>
+            </th>
+            <th>
+                <b>Estado</b>
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Extension)
+                    </td>
+                    <td>
+                        @if (item.Estado)
+                        {
+                            <b>Activo</b>
+                        }
+                        else
+                        {
+                            <b>Inactivo</b>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
+                        @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}

@@ -11,7 +11,7 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
+            <b>Nombre</b>
         </dt>
 
         <dd>
@@ -19,15 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MidleName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MidleName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            <b>Apellido</b>
         </dt>
 
         <dd>
@@ -35,23 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SecondLastName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SecondLastName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            <b>Correo Electrónico</b>
         </dt>
 
         <dd>
@@ -59,7 +35,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.AdmissionDate)
+            <b>Fecha Ingreso Sistema</b>
         </dt>
 
         <dd>
@@ -67,7 +43,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Extension)
+            <b>N° Extensión</b>
         </dt>
 
         <dd>
@@ -75,7 +51,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Sucursal)
+            <b>Sucursal</b>
         </dt>
 
         <dd>
@@ -83,7 +59,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PostBox)
+            <b>PostBox</b>
         </dt>
 
         <dd>
@@ -91,7 +67,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Fax)
+            <b>Fax</b>
         </dt>
 
         <dd>
@@ -99,7 +75,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LineaCelular)
+            <b>Linea Celular</b>
         </dt>
 
         <dd>
@@ -107,7 +83,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LineaCelularAdicional)
+            <b>Linea Celular Adicional</b>
         </dt>
 
         <dd>
@@ -118,5 +94,5 @@
 </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("regresar", "Index")
+    @Html.ActionLink("Regresar", "Index")
 </p>

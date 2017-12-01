@@ -57,6 +57,49 @@ namespace Dominio.Models
             return _listado;
         }
 
+        public List<Agenda> ConsultarAgenda(string nombre)
+        {
+            List<Agenda> listado = new List<Agenda>();
+            try
+            {
+                using (SqlConnection conexion = new SqlConnection(stringConnection))
+                {
+                    conexion.Open();
+                    SqlCommand cmd = new SqlCommand("[Agenda].[ConsultarAgenda]", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TipoConsulta", 2);
+                    cmd.Parameters.AddWithValue("@nombre", nombre);
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while(dr.Read())
+                    {
+                        var _agenda = new Agenda
+                        {
+                            Id = int.Parse(dr["id"].ToString()),
+                            FirstName = dr["nombres"].ToString(),
+                            LastName = dr["apellidos"].ToString(),
+                            Extension = dr["extension"].ToString(),
+                            Email = dr["email"].ToString(),
+                            Estado = (dr["estado"].ToString()) == "1" ? true : false,
+                            PostBox = dr["pbx"].ToString(),
+                            Sucursal = dr["sucursal"].ToString(),
+                            Address = dr["direccion"].ToString(),
+                            Fax = dr["fax"].ToString(),
+                            LineaCelular = dr["lineaCelular"].ToString(),
+                            LineaCelularAdicional = dr["lineaCelularAdicional"].ToString(),
+                            AdmissionDate = DateTime.Parse(dr["fechaCreacion"].ToString())
+                        };
+                        listado.Add(_agenda);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return listado;
+        }
+
         public Agenda ConsultarAgendaPersona(int id)
         {
             Agenda _agenda = new Agenda();
@@ -87,6 +130,7 @@ namespace Dominio.Models
                             Fax = dr["fax"].ToString(),
                             LineaCelular = dr["lineaCelular"].ToString(),
                             LineaCelularAdicional = dr["lineaCelularAdicional"].ToString(),
+                            AdmissionDate = DateTime.Parse(dr["fechaCreacion"].ToString())
                         };
                     }
                 }

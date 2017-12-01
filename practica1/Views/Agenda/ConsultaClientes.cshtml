@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Dominio.Models.Cliente>
+@{
+    ViewBag.Title = "ConsultaClientes";
+}
+
+<h2>ConsultaClientes</h2>
+
+<h2>Clientes</h2>
+
+
+@using (Html.BeginForm())
+{
+
+<b> Nombre:</b>
+<input type="text" name="name" value="@ViewBag.Name" />
+<input type="submit" value="Filtrar" />
+
+<table>
+    <tr>
+        <td>
+            Cliente Id
+        </td>
+        <td> 
+            Nombre 
+        </td>
+        <td>
+            Correo
+        </td>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td> @item.ClienteId </td>
+        <td> @item.Nombre </td>
+        <td> @item.Correo </td>
+    </tr>
+    }
+</table>
+
+}
