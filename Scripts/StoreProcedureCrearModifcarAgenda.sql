@@ -5,7 +5,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-create Procedure [Agenda].[CrearModificarAgenda]    
+alter Procedure [Agenda].[CrearModificarAgenda]    
 (    
      @TipoOperacion as int = 0,
 	 @Id as int = 0,
@@ -18,7 +18,8 @@ create Procedure [Agenda].[CrearModificarAgenda]
 	 @pbx [varchar](100) NULL,
 	 @fax [varchar](100) NULL,
 	 @lineaCelular [varchar](100) NULL,
-	 @lineaCelularAdicional [varchar](100) NULL
+	 @lineaCelularAdicional [varchar](100) NULL,
+	 @estado int = 1
 )    
 as     
 Begin    
@@ -61,6 +62,7 @@ Begin
 			  ,[fax] = @fax
 			  ,[lineaCelular] = @lineaCelular
 			  ,[lineaCelularAdicional] = @lineaCelularAdicional
+			  ,[estado] = @estado
 		 WHERE [id] = @Id
 		end
 End  

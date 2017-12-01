@@ -1,5 +1,4 @@
 ﻿
-using Dominio.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -18,6 +17,7 @@ namespace Dominio.Models
         public string Fax { get; set; }
         public string LineaCelular { get; set; }
         public string LineaCelularAdicional { get; set; }
+
         public bool Estado { get; set; }
 
         public List<Agenda> ConsultarAgenda()
@@ -119,6 +119,7 @@ namespace Dominio.Models
                     cmd.Parameters.AddWithValue("@fax", Fax != null ? Fax : string.Empty);
                     cmd.Parameters.AddWithValue("@lineaCelular", LineaCelular != null ? LineaCelular : string.Empty);
                     cmd.Parameters.AddWithValue("@lineaCelularAdicional", LineaCelularAdicional != null ? LineaCelularAdicional : string.Empty);
+                    cmd.Parameters.AddWithValue("@estado", Estado ? 1 : 0);
 
                     cmd.ExecuteReader();
 
@@ -131,5 +132,11 @@ namespace Dominio.Models
             }
             return _respuesta;
         }
+    }
+
+    public enum TipoEstado
+    {
+        Inactivo = 0,
+        Activo = 1
     }
 }
