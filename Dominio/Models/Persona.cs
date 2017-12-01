@@ -12,5 +12,6 @@ namespace Dominio.Models
         public string Code { get; set; }
         public string Email { get; set; }
         public DateTime AdmissionDate { get; set; }
+        public string Address { get; set; }
     }
 }

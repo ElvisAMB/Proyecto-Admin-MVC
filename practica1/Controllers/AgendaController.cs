@@ -33,8 +33,37 @@ namespace practica1.Controllers
         [HttpPost]
         public ActionResult Guardar(Agenda persona)
         {
+            var puedeContinuar = true;
+            if (persona != null)
+            {
+                if (persona.Id == 0)
+                {
+                    puedeContinuar = false;
+                }
+
+                if (persona.FirstName == string.Empty || persona.FirstName == null)
+                {
+                    puedeContinuar = false;
+                }
+
+                if (persona.LastName == string.Empty || persona.LastName == null)
+                {
+                    puedeContinuar = false;
+                }
+
+                if (persona.Email == string.Empty || persona.Email == null)
+                {
+                    puedeContinuar = false;
+                }
+            }
+
+            if (!puedeContinuar)
+            {
+                return RedirectToAction("Editar", persona.Id);
+            }
+
             persona.Guardar();
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }

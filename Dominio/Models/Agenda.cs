@@ -18,6 +18,7 @@ namespace Dominio.Models
         public string Fax { get; set; }
         public string LineaCelular { get; set; }
         public string LineaCelularAdicional { get; set; }
+        public bool Estado { get; set; }
 
         public List<Agenda> ConsultarAgenda()
         {
@@ -73,10 +74,18 @@ namespace Dominio.Models
                     {
                         _agenda = new Agenda
                         {
+                            Id = int.Parse(dr["id"].ToString()),
                             FirstName = dr["nombres"].ToString(),
                             LastName = dr["apellidos"].ToString(),
                             Extension = dr["extension"].ToString(),
-                            Email = dr["email"].ToString()
+                            Email = dr["email"].ToString(),
+                            Estado = (dr["estado"].ToString()) == "1" ? true : false,
+                            PostBox = dr["pbx"].ToString(),
+                            Sucursal = dr["sucursal"].ToString(),
+                            Address = dr["direccion"].ToString(),
+                            Fax = dr["fax"].ToString(),
+                            LineaCelular = dr["lineaCelular"].ToString(),
+                            LineaCelularAdicional = dr["lineaCelularAdicional"].ToString(),
                         };
                     }
                 }
@@ -99,16 +108,17 @@ namespace Dominio.Models
                     SqlCommand cmd = new SqlCommand("[Agenda].[CrearModificarAgenda]", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@TipoOperacion", (Id == 0 ? 0 : 1));
-                    cmd.Parameters.AddWithValue("@nombres", FirstName);
-                    cmd.Parameters.AddWithValue("@apellidos", LastName);
-                    cmd.Parameters.AddWithValue("@extension", Extension);
-                    cmd.Parameters.AddWithValue("@email", Email);
-                    cmd.Parameters.AddWithValue("@sucursal", int.Parse(Sucursal));
+                    cmd.Parameters.AddWithValue("@Id", Id);
+                    cmd.Parameters.AddWithValue("@nombres", FirstName != null ? FirstName.ToUpper() : string.Empty);
+                    cmd.Parameters.AddWithValue("@apellidos", LastName != null ? LastName.ToUpper() : string.Empty);
+                    cmd.Parameters.AddWithValue("@extension", Extension != null ? Extension : string.Empty);
+                    cmd.Parameters.AddWithValue("@email", Email != null ? Email : string.Empty);
+                    cmd.Parameters.AddWithValue("@sucursal", Sucursal != null ? Sucursal : string.Empty);
                     cmd.Parameters.AddWithValue("@direccion", string.Empty);
-                    cmd.Parameters.AddWithValue("@pbx", PostBox);
-                    cmd.Parameters.AddWithValue("@fax", Fax);
-                    cmd.Parameters.AddWithValue("@lineaCelular", LineaCelular);
-                    cmd.Parameters.AddWithValue("@lineaCelularAdicional", LineaCelularAdicional);
+                    cmd.Parameters.AddWithValue("@pbx", PostBox != null ? PostBox : string.Empty);
+                    cmd.Parameters.AddWithValue("@fax", Fax != null ? Fax : string.Empty);
+                    cmd.Parameters.AddWithValue("@lineaCelular", LineaCelular != null ? LineaCelular : string.Empty);
+                    cmd.Parameters.AddWithValue("@lineaCelularAdicional", LineaCelularAdicional != null ? LineaCelularAdicional : string.Empty);
 
                     cmd.ExecuteReader();
 
