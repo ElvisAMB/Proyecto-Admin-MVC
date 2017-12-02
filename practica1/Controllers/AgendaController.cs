@@ -95,56 +95,56 @@ namespace practica1.Controllers
                 return View(new Cliente().ObtenerClientes().Where(c => c.Nombre.ToLower().Contains(name)));
             }
         }
-        #endregion
+    #endregion
 
-        public ActionResult Customers()
-        {
-            return View(new Cliente().ObtenerClientes());
-        }
-
-        public ActionResult GetDataCustomers(JQueryDataTableParams param)
-        {
-            //    //Traer registros
-            IQueryable<Cliente> memberCol = new Cliente().ObtenerClientes().AsQueryable();
-
-            //    //Manejador de filtros
-            int totalCount = memberCol.Count();
-            IEnumerable<Cliente> filteredMembers = memberCol;
-            if (!string.IsNullOrEmpty(param.sSearch))
-            {
-                filteredMembers = memberCol.Where(m => m.ClienteId.Contains(param.sSearch) || m.Correo.Contains(param.sSearch) || m.Nombre.Contains(param.sSearch));
-            }
-            //    //Manejador de orden
-            var sortIdx = Convert.ToInt32(Request["iSortCol_0"]);
-            Func<Cliente, string> orderingFunction =
-                                (
-                                m => sortIdx == 0 ? m.ClienteId.ToString() : sortIdx == 1 ? m.Nombre : m.Correo);
-            var sortDirection = Request["sSortDir_0"]; // asc or desc  
-            if (sortDirection == "asc")
-                filteredMembers = filteredMembers.OrderBy(orderingFunction);
-            else
-                filteredMembers = filteredMembers.OrderByDescending(orderingFunction);
-            var displayedMembers = filteredMembers
-                     .Skip(param.iDisplayStart)
-                     .Take(param.iDisplayLength);
-
-            //    //Manejardo de resultados
-            var result = from a in displayedMembers
-                         select new
-                         {
-                             a.ClienteId,
-                             a.Nombre,
-                             a.Correo
-                         };
-            //    //Se devuelven los resultados por json
-            return Json(new
-            {
-                sEcho = param.sEcho,
-                iTotalRecords = totalCount,
-                iTotalDisplayRecords = filteredMembers.Count(),
-                aaData = result
-            },
-            JsonRequestBehavior.AllowGet);
-        }
+    public ActionResult Customers()
+    {
+      return View("~/Views/Shared/Error.cshtml");
     }
+
+    //public ActionResult GetDataCustomers(JQueryDataTableParams param)
+    //{
+    //    //    //Traer registros
+    //    IQueryable<Cliente> memberCol = new Cliente().ObtenerClientes().AsQueryable();
+
+    //    //    //Manejador de filtros
+    //    int totalCount = memberCol.Count();
+    //    IEnumerable<Cliente> filteredMembers = memberCol;
+    //    if (!string.IsNullOrEmpty(param.sSearch))
+    //    {
+    //        filteredMembers = memberCol.Where(m => m.ClienteId.Contains(param.sSearch) || m.Correo.Contains(param.sSearch) || m.Nombre.Contains(param.sSearch));
+    //    }
+    //    //    //Manejador de orden
+    //    var sortIdx = Convert.ToInt32(Request["iSortCol_0"]);
+    //    Func<Cliente, string> orderingFunction =
+    //                        (
+    //                        m => sortIdx == 0 ? m.ClienteId.ToString() : sortIdx == 1 ? m.Nombre : m.Correo);
+    //    var sortDirection = Request["sSortDir_0"]; // asc or desc  
+    //    if (sortDirection == "asc")
+    //        filteredMembers = filteredMembers.OrderBy(orderingFunction);
+    //    else
+    //        filteredMembers = filteredMembers.OrderByDescending(orderingFunction);
+    //    var displayedMembers = filteredMembers
+    //             .Skip(param.iDisplayStart)
+    //             .Take(param.iDisplayLength);
+
+    //    //    //Manejardo de resultados
+    //    var result = from a in displayedMembers
+    //                 select new
+    //                 {
+    //                     a.ClienteId,
+    //                     a.Nombre,
+    //                     a.Correo
+    //                 };
+    //    //    //Se devuelven los resultados por json
+    //    return Json(new
+    //    {
+    //        sEcho = param.sEcho,
+    //        iTotalRecords = totalCount,
+    //        iTotalDisplayRecords = filteredMembers.Count(),
+    //        aaData = result
+    //    },
+    //    JsonRequestBehavior.AllowGet);
+    //}
+  }
 }
