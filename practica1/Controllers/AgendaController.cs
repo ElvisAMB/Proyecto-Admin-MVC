@@ -84,42 +84,28 @@ namespace practica1.Controllers
         }
 
         #region
-        ///Para probar un filtro de información
-        ///
-
-        private static readonly List<Cliente> clientes = new List<Cliente>()
-        {
-             new Cliente { ClienteId = "1", Nombre = "Julio Avellaneda", Correo = "julito_gtu@hotmail.com"},
-             new Cliente { ClienteId = "2", Nombre = "Juan Torres", Correo = "jtorres@hotmail.com"},
-             new Cliente { ClienteId = "3", Nombre = "Oscar Camacho", Correo = "oscarca@hotmail.com"},
-             new Cliente { ClienteId = "4", Nombre = "Gina Urrego", Correo = "ginna@hotmail.com"},
-             new Cliente { ClienteId = "5", Nombre = "Nathalia Ramirez", Correo = "natha@hotmail.com"},
-             new Cliente { ClienteId = "6", Nombre = "Raul Rodriguez", Correo = "rodriguez.raul@hotmail.com"},
-             new Cliente { ClienteId = "7", Nombre = "Johana Espitia", Correo = "johana_espitia@hotmail.com"},
-             new Cliente { ClienteId = "8", Nombre = "Elvis Alfredo Mora Barros", Correo = "elvis.mora@confianza.com.ec"}
-        };
 
         public ActionResult ConsultaClientes(string name)
         {
             if (string.IsNullOrEmpty(name))
-                return View(clientes);
+                return View(new Cliente().ObtenerClientes());
             else
             {
                 ViewBag.Name = name;
-                return View(clientes.Where(c => c.Nombre.ToLower().Contains(name)));
+                return View(new Cliente().ObtenerClientes().Where(c => c.Nombre.ToLower().Contains(name)));
             }
         }
         #endregion
 
         public ActionResult Customers()
         {
-            return View(clientes);
+            return View(new Cliente().ObtenerClientes());
         }
 
         public ActionResult GetDataCustomers(JQueryDataTableParams param)
         {
             //    //Traer registros
-            IQueryable<Cliente> memberCol = clientes.AsQueryable();
+            IQueryable<Cliente> memberCol = new Cliente().ObtenerClientes().AsQueryable();
 
             //    //Manejador de filtros
             int totalCount = memberCol.Count();
@@ -132,7 +118,7 @@ namespace practica1.Controllers
             var sortIdx = Convert.ToInt32(Request["iSortCol_0"]);
             Func<Cliente, string> orderingFunction =
                                 (
-                                m => sortIdx == 0 ? m.Nombre : sortIdx == 1 ? m.Correo : m.ClienteId.ToString());
+                                m => sortIdx == 0 ? m.ClienteId.ToString() : sortIdx == 1 ? m.Nombre : m.Correo);
             var sortDirection = Request["sSortDir_0"]; // asc or desc  
             if (sortDirection == "asc")
                 filteredMembers = filteredMembers.OrderBy(orderingFunction);

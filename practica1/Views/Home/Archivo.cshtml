@@ -6,29 +6,28 @@
 <br />
 <br />
 
-<p></p>
-
-@*@using (Html.BeginForm("SubirArchivo", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="@Url.Action("Index", "Home")">Dashboard</a>
+    </li>
+    @*<li class="breadcrumb-item active">Blank Page</li>*@
+</ol>
+<div class="row">
+    <div class="col-12">
+        @*<p>Seleccionar un archivo para poder almacenarlo en el servidor</p>*@
+        @using (Html.BeginForm("SubirArchivo", "Home", FormMethod.Post, new
         {
-            @*<input type="file" name="file" />
-    @Html.TextBoxFor(m => m.File, new { type = "file" })
-    <br />
-    <input type="file" name="file" />
-    <br />
-    <input type="file" name="file" />
-    <br />
-    <button type="submit">Subir archivo</button>
-    }*@
+            enctype = "multipart/form-data"
+        }))
+        {
+            @Html.TextBoxFor(m => m.File, new { type = "file" })
+            @Html.ValidationMessageFor(m => m.File)
+            <br />
+            <br />
+            <input type="submit" value="Guardar Archivo" class="btn btn-primary" />
+        }
+    </div>
+</div>
 
 
-@using (Html.BeginForm("SubirArchivo", "Home", FormMethod.Post, new
-{
-    enctype = "multipart/form-data"
-}))
-{
-    @Html.TextBoxFor(m => m.File, new { type = "file" })
-    @Html.ValidationMessageFor(m => m.File)
-    <br />
-    <br />
-        <input type="submit" value="Guardar Archivo" class="btn btn-primary" />
-}
+

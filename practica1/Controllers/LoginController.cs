@@ -13,7 +13,7 @@ namespace practica1.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult Login(UsuarioModel usuario)
         {
