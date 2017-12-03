@@ -19,7 +19,7 @@ namespace Dominio.Models
         public string LineaCelularAdicional { get; set; }
 
         public bool Estado { get; set; }
-
+    
         public List<Agenda> ConsultarAgenda()
         {
             List<Agenda> _listado = new List<Agenda>();

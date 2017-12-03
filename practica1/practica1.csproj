@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AgendaController.cs" />
+    <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -629,6 +630,11 @@
     <Content Include="Views\Phone\Create.cshtml" />
     <Content Include="Views\Phone\Edit.cshtml" />
     <Content Include="Views\Phone\Delete.cshtml" />
+    <Content Include="Views\Empleado\Index.cshtml" />
+    <Content Include="Views\Empleado\Details.cshtml" />
+    <Content Include="Views\Empleado\Create.cshtml" />
+    <Content Include="Views\Empleado\Edit.cshtml" />
+    <Content Include="Views\Empleado\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
