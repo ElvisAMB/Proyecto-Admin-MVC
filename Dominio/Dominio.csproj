@@ -45,6 +45,7 @@
     <Compile Include="Models\Agenda.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\jQueryDataTableParams.cs" />
+    <Compile Include="Models\PagedList.cs" />
     <Compile Include="Models\Persona.cs" />
     <Compile Include="Models\Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

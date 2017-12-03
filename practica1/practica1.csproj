@@ -172,8 +172,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PhoneController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Models\FileModel.cs" />
+    <Compile Include="Models\Phone.cs" />
     <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -377,12 +379,14 @@
     <Content Include="Content\login\vendor\jquery-easing\jquery.easing.min.js" />
     <Content Include="Content\login\vendor\jquery\jquery.js" />
     <Content Include="Content\login\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\modal\modal_style.css" />
     <Content Include="Scripts\admin\sb-admin-charts.js" />
     <Content Include="Scripts\admin\sb-admin-charts.min.js" />
     <Content Include="Scripts\admin\sb-admin-datatables.js" />
     <Content Include="Scripts\admin\sb-admin-datatables.min.js" />
     <Content Include="Scripts\admin\sb-admin.js" />
     <Content Include="Scripts\admin\sb-admin.min.js" />
+    <Content Include="Scripts\appjs\phone.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap4.js" />
@@ -620,6 +624,11 @@
     <Content Include="Views\Agenda\Detalle.cshtml" />
     <Content Include="Views\Agenda\ConsultaClientes.cshtml" />
     <Content Include="Views\Agenda\Customers.cshtml" />
+    <Content Include="Views\Phone\Index.cshtml" />
+    <Content Include="Views\Phone\Details.cshtml" />
+    <Content Include="Views\Phone\Create.cshtml" />
+    <Content Include="Views\Phone\Edit.cshtml" />
+    <Content Include="Views\Phone\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />
