@@ -7,94 +7,94 @@ using System.Web.Mvc;
 
 namespace practica1.Controllers
 {
-    public class AgendaController : Controller
+  public class AgendaController : Controller
+  {
+    // GET: Agenda
+    //public ActionResult Index()
+    //{
+    //    return View(new Agenda().ConsultarAgenda());
+    //}
+
+    public ActionResult Index(string nombre)
     {
-        // GET: Agenda
-        //public ActionResult Index()
-        //{
-        //    return View(new Agenda().ConsultarAgenda());
-        //}
+      if (nombre == null)
+      {
+        return View(new Agenda().ConsultarAgenda());
+      }
+      else
+      {
+        ViewBag.Name = nombre;
+        return View(new Agenda().ConsultarAgenda(nombre));
+      }
+    }
 
-        public ActionResult Index(string nombre)
+    public ActionResult Edit(int id)
+    {
+      return View(new Agenda().ConsultarAgendaPersona(id));
+    }
+
+    public ActionResult Crear()
+    {
+      return View(new Agenda());
+    }
+
+    public ActionResult Eliminar(int id)
+    {
+      return View("Index", null);
+    }
+    public ActionResult Detalle(int id)
+    {
+      return View(new Agenda().ConsultarAgendaPersona(id));
+    }
+
+    [HttpPost]
+    public ActionResult Guardar(Agenda persona)
+    {
+      var puedeContinuar = true;
+      if (persona != null)
+      {
+        if (persona.Id == 0)
         {
-            if (nombre == null)
-            {
-                return View(new Agenda().ConsultarAgenda());
-            }
-            else
-            {
-                ViewBag.Name = nombre;
-                return View(new Agenda().ConsultarAgenda(nombre));
-            }
+          persona.Estado = true;
         }
 
-        public ActionResult Edit(int id)
+        if (persona.FirstName == string.Empty || persona.FirstName == null)
         {
-            return View(new Agenda().ConsultarAgendaPersona(id));
+          //puedeContinuar = false;
         }
 
-        public ActionResult Crear()
+        if (persona.LastName == string.Empty || persona.LastName == null)
         {
-            return View(new Agenda());
+          //puedeContinuar = false;
         }
 
-        public ActionResult Eliminar(int id)
+        if (persona.Email == string.Empty || persona.Email == null)
         {
-            return View("Index", null);
+          //puedeContinuar = false;
         }
-        public ActionResult Detalle(int id)
-        {
-            return View(new Agenda().ConsultarAgendaPersona(id));
-        }
+      }
 
-        [HttpPost]
-        public ActionResult Guardar(Agenda persona)
-        {
-            var puedeContinuar = true;
-            if (persona != null)
-            {
-                if (persona.Id == 0)
-                {
-                    puedeContinuar = false;
-                }
+      if (!puedeContinuar)
+      {
+        return RedirectToAction("Editar", persona.Id);
+      }
 
-                if (persona.FirstName == string.Empty || persona.FirstName == null)
-                {
-                    puedeContinuar = false;
-                }
+      persona.Guardar();
+      return RedirectToAction("Index");
+    }
 
-                if (persona.LastName == string.Empty || persona.LastName == null)
-                {
-                    puedeContinuar = false;
-                }
+    #region
 
-                if (persona.Email == string.Empty || persona.Email == null)
-                {
-                    puedeContinuar = false;
-                }
-            }
-
-            if (!puedeContinuar)
-            {
-                return RedirectToAction("Editar", persona.Id);
-            }
-
-            persona.Guardar();
-            return RedirectToAction("Index");
-        }
-
-        #region
-
-        public ActionResult ConsultaClientes(string name)
-        {
-            if (string.IsNullOrEmpty(name))
-                return View(new Cliente().ObtenerClientes());
-            else
-            {
-                ViewBag.Name = name;
-                return View(new Cliente().ObtenerClientes().Where(c => c.Nombre.ToLower().Contains(name)));
-            }
-        }
+    public ActionResult ConsultaClientes(string name)
+    {
+      if (string.IsNullOrEmpty(name))
+        return View(new Cliente().ObtenerClientes());
+      else
+      {
+        ViewBag.Name = name;
+        return View(new Cliente().ObtenerClientes().Where(c => c.Nombre.ToLower().Contains(name)));
+      }
+    }
     #endregion
 
     public ActionResult Customers()

@@ -36,7 +36,7 @@
     multiselect: false
     //pager-you have to choose here what icons should appear at the bottom
     //like edit,create,delete icons
-  }).navGrid('#pager', { edit: true, add: true, del: true, search: false, refresh: true },
+  }).navGrid('#pager', { edit: true, add: true, del: true, search: true, refresh: true },
       {
         // edit options
         zIndex: 100,
@@ -75,5 +75,7 @@
             alert(response.responseText);
           }
         }
-      });
+      },
+      //jQuery("#grid").jqGrid('navGrid', '#pager', { edit: false, add: false, del: false }, {}, {}, {}, { multipleSearch: true, multipleGroup: true })
+      );
 });

@@ -13,209 +13,229 @@
   </li>
 </ol>
 
-<div class="card-body">
+@*<div class="card-body">
   <div class="table-responsive">
     <div class="dataTables_wrapper container-fluid" id="dataTable_wrapper">
       <div class="card mb-3">
         <div class="card-header">
-          @*<i class="fa fa-table"></i>*@
+          <i class="fa fa-table"></i>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
+          <div class="table-responsive">*@
 
 
-            @*<div class="row">
-              <div class="col-sm-12 col-md-6">
-                <div class="dataTables_length" id="dataTable_length">
-                  <label>
-                    Show
-                    <select name="dataTable_length" class="form-control form-control-sm" aria-controls="dataTable">
-                      <option value="10">10</option>
-                      <option value="25">25</option>
-                      <option value="50">50</option>
-                      <option value="100">100</option>
-                    </select> entries
-                  </label>
-                </div>
-              </div><div class="col-sm-12 col-md-6">
-                <div class="dataTables_filter" id="dataTable_filter">
-                  <label>
-                    Search:<input class="form-control form-control-sm" aria-controls="dataTable" type="search" placeholder="">
-                  </label>
-                </div>
-              </div>
-            </div>*@
-
-
-
-            <table class="table table-bordered" id="dataTable" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Correo</th>
-                  <th>Extensión</th>
-                  <th>Estado</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th>Id</th>
-                  <th>Nombre</th>
-                  <th>Apellido</th>
-                  <th>Correo</th>
-                  <th>Extensión</th>
-                  <th>Estado</th>
-                  <th></th>
-                </tr>
-              </tfoot>
-              <tbody>
-                @if (Model != null)
-              {
-                foreach (var item in Model)
-                {
-                <tr>
-                  <td>@Html.DisplayFor(modelItem => item.Id)</td>
-                  <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-                  <td>@Html.DisplayFor(modelItem => item.LastName)</td>
-                  <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                  <td>@Html.DisplayFor(modelItem => item.Extension)</td>
-                  <td>
-                    @if (item.Estado)
-                    {
-                      <span class="text-success">
-                        <strong>
-                          <i class="fa fa-long-arrow-up fa-fw"></i>Activo
-                        </strong>
-                      </span>
-                    }
-                    else
-                    {
-                      <span class="text-danger">
-                        <strong>
-                          <i class="fa fa-long-arrow-down fa-fw"></i>Inactivo
-                        </strong>
-                      </span>
-                    }
-                  </td>
-                  <td>
-                    @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
-                    @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
-                  </td>
-                </tr>
-                }
-              }
-              </tbody>
-            </table>
-
-            @*<div class="row">
-              <div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7">
-                <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-                  <ul class="pagination">
-                    <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="0">Previous</a></li>
-                    <li class="paginate_button page-item active"><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="1">1</a></li>
-                    <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="2">2</a></li>
-                    <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="3">3</a></li>
-                    <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="4">4</a></li>
-                    <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="5">5</a></li>
-                    <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="6">6</a></li>
-                    <li class="paginate_button page-item next" id="dataTable_next">
-                      <a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="7">Next</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>*@
-          </div>
-        </div>
-        @*<div class="card-footer small text-muted"></div>*@
+@*<div class="row">
+    <div class="col-sm-12 col-md-6">
+      <div class="dataTables_length" id="dataTable_length">
+        <label>
+          Show
+          <select name="dataTable_length" class="form-control form-control-sm" aria-controls="dataTable">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select> entries
+        </label>
       </div>
-
+    </div><div class="col-sm-12 col-md-6">
+      <div class="dataTables_filter" id="dataTable_filter">
+        <label>
+          Search:<input class="form-control form-control-sm" aria-controls="dataTable" type="search" placeholder="">
+        </label>
+      </div>
     </div>
-  </div>
-</div>
+  </div>*@
 
 
 
-@*<br />
-  <br />
-  <h2>Agenda Telefónica</h2>
+@*<table class="table table-bordered" id="dataTable" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Extensión</th>
+        <th>Estado</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Extensión</th>
+        <th>Estado</th>
+        <th></th>
+      </tr>
+    </tfoot>
+    <tbody>
+      @if (Model != null)
+    {
+      foreach (var item in Model)
+      {
+      <tr>
+        <td>@Html.DisplayFor(modelItem => item.Id)</td>
+        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+        <td>@Html.DisplayFor(modelItem => item.Extension)</td>
+        <td>
+          @if (item.Estado)
+          {
+            <span class="text-success">
+              <strong>
+                <i class="fa fa-long-arrow-up fa-fw"></i>Activo
+              </strong>
+            </span>
+          }
+          else
+          {
+            <span class="text-danger">
+              <strong>
+                <i class="fa fa-long-arrow-down fa-fw"></i>Inactivo
+              </strong>
+            </span>
+          }
+        </td>
+        <td>
+          @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+          @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
+          @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+        </td>
+      </tr>
+      }
+    }
+    </tbody>
+  </table>*@
 
-  <p>
-      @Html.ActionLink("Nuevo", "Crear")
-  </p>
+@*<div class="row">
+                <div class="col-sm-12 col-md-5"><div class="dataTables_info" id="dataTable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7">
+                  <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+                    <ul class="pagination">
+                      <li class="paginate_button page-item previous disabled" id="dataTable_previous"><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="0">Previous</a></li>
+                      <li class="paginate_button page-item active"><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="1">1</a></li>
+                      <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="2">2</a></li>
+                      <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="3">3</a></li>
+                      <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="4">4</a></li>
+                      <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="5">5</a></li>
+                      <li class="paginate_button page-item "><a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="6">6</a></li>
+                      <li class="paginate_button page-item next" id="dataTable_next">
+                        <a tabindex="0" class="page-link" aria-controls="dataTable" href="#" data-dt-idx="7">Next</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer small text-muted"></div>
+        </div>
 
-  @using (Html.BeginForm())
-  {
-      <b> Nombre:</b>
+      </div>
+    </div>
+  </div>*@
+
+
+
+<br />
+<br />
+<h2>Agenda Telefónica</h2>
+
+<p>
+  @Html.ActionLink("Nuevo", "Crear", "Agenda", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm())
+{
+  <b> Nombre:</b>
       <input type="text" name="nombre" value="@ViewBag.Name" />
       <input type="submit" value="Filtrar" />
       <table class="table">
-          <tr>
-              <th>
-                  <b>Código</b>
-              </th>
-              <th>
-                  <b>Nombre</b>
-              </th>
-              <th>
-                  <b>Apellido</b>
-              </th>
-              <th>
-                  <b>Correo Electrónico</b>
-              </th>
-              <th>
-                  <b>N° Extensión</b>
-              </th>
-              <th>
-                  <b>Estado</b>
-              </th>
-              <th></th>
-          </tr>
+        <tr>
+          <th>
+            <b>Código</b>
+          </th>
+          <th>
+            <b>Nombre</b>
+          </th>
+          <th>
+            <b>Apellido</b>
+          </th>
+          <th>
+            <b>Correo Electrónico</b>
+          </th>
+          <th>
+            <b>N° Extensión</b>
+          </th>
+          <th>
+            <b>Estado</b>
+          </th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
 
-          @if (Model != null)
+        @if (Model != null)
+        {
+          foreach (var item in Model)
           {
-              foreach (var item in Model)
-              {
-                  <tr>
-                      <td>
-                          @Html.DisplayFor(modelItem => item.Id)
-                      </td>
-                      <td>
-                          @Html.DisplayFor(modelItem => item.FirstName)
-                      </td>
-                      <td>
-                          @Html.DisplayFor(modelItem => item.LastName)
-                      </td>
-                      <td>
-                          @Html.DisplayFor(modelItem => item.Email)
-                      </td>
-                      <td>
-                          @Html.DisplayFor(modelItem => item.Extension)
-                      </td>
-                      <td>
-                          @if (item.Estado)
-                          {
-                              <b>Activo</b>
-                          }
-                          else
-                          {
-                              <b>Inactivo</b>
-                          }
-                      </td>
-                      <td>
-                          @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
-                          @Html.ActionLink("Detalles", "Detalle", new { id = item.Id }) |
-                          @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
-                      </td>
-                  </tr>
-              }
+            <tr>
+              <td>
+                @Html.DisplayFor(modelItem => item.Id)
+              </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+              </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+              </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Email)
+              </td>
+              <td>
+                @Html.DisplayFor(modelItem => item.Extension)
+              </td>
+              <td>
+                @if (item.Estado)
+                {
+                  <span class="text-success">
+                    <strong>
+                      <i class="fa fa-long-arrow-up fa-fw"></i>Activo
+                    </strong>
+                  </span>
+                }
+                else
+                {
+                  <span class="text-danger">
+                    <strong>
+                      <i class="fa fa-long-arrow-down fa-fw"></i>Inactivo
+                    </strong>
+                  </span>
+                }
+              </td>
+              <td>
+                <div class="btn btn-success btn-md">
+                  @Html.ActionLink("Editar", "Edit", new { id = item.Id })
+                </div>
+              </td>
+              <td>
+                <div class="btn btn-warning btn-md">
+                  @Html.ActionLink("Detalles", "Detalle", new { id = item.Id })
+                </div>
+              </td>
+              <td>
+                <div class="btn btn-danger btn-md">
+                  @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+                </div>
+              </td>
+            </tr>
           }
+        }
       </table>
-  }*@
+}
 
 
 
