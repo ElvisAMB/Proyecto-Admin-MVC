@@ -175,6 +175,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PhoneController.cs" />
+    <Compile Include="Controllers\PruebaController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Models\FileModel.cs" />
     <Compile Include="Models\Phone.cs" />
@@ -749,6 +750,7 @@
     <Content Include="Views\Empleado\Edit.cshtml" />
     <Content Include="Views\Empleado\Delete.cshtml" />
     <Content Include="Views\AgendaTelefonica\Index.cshtml" />
+    <Content Include="Views\Prueba\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Uploads\" />

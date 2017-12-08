@@ -7,6 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Admin</title>
+
   <link href="~/Scripts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="~/Scripts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="~/Content/admin/css/sb-admin.min.css" rel="stylesheet" />
@@ -14,8 +15,10 @@
   <link href="~/Content/login/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <link href="~/Content/login/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
   <link href="~/Content/admin/css/sb-admin.min.css" rel="stylesheet" />
-
-
+  @*<link href="<%= Url.Content(~/Content/login/vendor/bootstrap/css/bootstrap.min.css)%>" rel="stylesheet" type="text/css" />*@
+  @*<link href="<%= Url.Content(~/Content/login/vendor/font-awesome/css/font-awesome.min.css")%>" rel="stylesheet" type="text/css" />
+  <link href="<%= Url.Content(~/Content/admin/css/sb-admin.min.css)%>" rel="stylesheet" type="text/css" />*@
+  
 
   @RenderSection("head", false)
 </head>
@@ -47,6 +50,9 @@
             </li>
             <li>
               <a href="@Url.Action("Archivo", "Home")">Archivos</a>
+            </li>
+            <li>
+              <a href="@Url.Action("Index", "Prueba")">Prueba</a>
             </li>
             <li>
               <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Agenda</a>
@@ -340,11 +346,6 @@
       </div>
     </div>
 
-    <script src="~/Scripts/vendor/jquery/jquery.min.js"></script>
-    <script src="~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="~/Scripts/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="~/Scripts/admin/sb-admin.min.js"></script>
-
     <script>
       $('#toggleNavPosition').click(function () {
         $('body').toggleClass('fixed-nav');
@@ -365,19 +366,31 @@
 
   @Scripts.Render("~/bundles/jquery")
   @Scripts.Render("~/bundles/bootstrap")
+  @Scripts.Render("~/bundles/estilos")
   @RenderSection("scripts", required: false)
 
+  
+  
+  
+  
+
   <!-- Bootstrap core JavaScript-->
-  <script src="~/Content/login/vendor/jquery/jquery.min.js"></script>
-  <script src="~/Content/login/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  @*<script src="~/Content/login/vendor/jquery/jquery.min.js"></script>*@
+  <script src="<%= Url.Content(~/Scripts/vendor/jquery/jquery.min.js)%>"></script>
+  @*<script src="~/Content/login/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>*@
+  <script src="<%= Url.Content(~/Scripts/vendor/bootstrap/js/bootstrap.bundle.min.js)%>"></script>
   <!-- Core plugin JavaScript-->
-  <script src="~/Content/login/vendor/jquery-easing/jquery.easing.min.js"></script>
+  @*<script src="~/Content/login/vendor/jquery-easing/jquery.easing.min.js"></script>*@
+  <script src="<%= Url.Content(~/Scripts/vendor/jquery-easing/jquery.easing.min.js)%>"></script>
   <!-- Page level plugin JavaScript-->
-  <script src="~/Content/login/vendor/chart.js/Chart.min.js"></script>
+  @*<script src="~/Content/login/vendor/chart.js/Chart.min.js"></script>*@
+  <script src="<%= Url.Content(~/Content/login/vendor/chart.js/Chart.min.js)%>"></script>
    <!-- Custom scripts for all pages-->
-  <script src="~/Scripts/admin/sb-admin.min.js"></script>
+  @*<script src="~/Scripts/admin/sb-admin.min.js"></script>*@
+  <script src="<%= Url.Content(~/Scripts/admin/sb-admin.min.js)%>"></script>
   <!-- Custom scripts for this page-->
-  <script src="~/Scripts/admin/sb-admin-charts.min.js"></script>
+  @*<script src="~/Scripts/admin/sb-admin-charts.min.js"></script>*@
+  <script src="<%= Url.Content(~/Scripts/admin/sb-admin-charts.min.js)%>"></script>
 
 </body>
 </html> 
