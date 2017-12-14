@@ -217,19 +217,13 @@
                 }
               </td>
               <td>
-                <div class="btn btn-success btn-md">
+                
                   @Html.ActionLink("Editar", "Edit", new { id = item.Id })
-                </div>
-              </td>
-              <td>
-                <div class="btn btn-warning btn-md">
+                  |
                   @Html.ActionLink("Detalles", "Detalle", new { id = item.Id })
-                </div>
-              </td>
-              <td>
-                <div class="btn btn-danger btn-md">
+                  |
                   @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
-                </div>
+                
               </td>
             </tr>
           }
